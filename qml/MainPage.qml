@@ -25,15 +25,15 @@ Page {
         }
 
         Label {
-            text: qsTr("Aperture:") + " f/" + (apertureSlider.value / 10)
+            text: qsTr("Aperture:")
         }
 
-        Slider {
-            id: apertureSlider
-            minimumValue: 1
-            maximumValue: 320
-            stepSize: 1
-            value: 28
+        Button {
+            id: aperture
+            text: selected
+            onClicked: apertureSelectionDialog.open()
+            property string selected: apertureSelectionDialog.selected
+            property double value: apertureSelectionDialog.value
         }
 
         Label {
@@ -51,7 +51,7 @@ Page {
         Label {
             text: qsTr("Hyperfocal distance:") + " " + (Math.round(value / 100) / 10) + " m"
             id: hyperFocal
-            property int value: (((focal.value * focal.value) / (0.020 * apertureSlider.value / 10)) + focal.value)
+            property int value: (((focal.value * focal.value) / (0.020 * aperture.value)) + focal.value)
         }
 
         Label {
@@ -78,5 +78,9 @@ Page {
 
     FocalSelection {
         id: focalSelectionDialog
+    }
+
+    ApertureSelection {
+        id: apertureSelectionDialog
     }
 }
