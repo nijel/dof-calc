@@ -58,7 +58,7 @@ Page {
             minimumValue: 100
             maximumValue: 100000
             stepSize: 100
-            value: 1000
+            value: 10000
         }
 
         Label {
