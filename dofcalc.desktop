@@ -3,7 +3,7 @@ Encoding=UTF-8
 Version=1.0
 Type=Application
 Terminal=false
-Name=dofcalc
+Name=DOF Calc
 Exec=invoker --single-instance --type=d /opt/dofcalc/bin/dofcalc
 Icon=/usr/share/icons/hicolor/scalable/apps/dofcalc.svg
 X-Window-Icon=
