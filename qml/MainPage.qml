@@ -12,6 +12,19 @@ Page {
         spacing: 5
 
         Label {
+            text: qsTr("Camera:")
+        }
+
+        Button {
+            id: camera
+            text: selected
+            onClicked: cameraSelectionDialog.open()
+            property string selected: cameraSelectionDialog.selected
+            property double value: cameraSelectionDialog.value
+
+        }
+
+        Label {
             text: qsTr("Focal length:")
         }
 
@@ -51,7 +64,7 @@ Page {
         Label {
             text: qsTr("Hyperfocal distance:") + " " + (Math.round(value / 100) / 10) + " m"
             id: hyperFocal
-            property int value: (((focal.value * focal.value) / (0.020 * aperture.value)) + focal.value)
+            property int value: (((focal.value * focal.value) / (camera.value * aperture.value)) + focal.value)
         }
 
         Label {
@@ -82,5 +95,9 @@ Page {
 
     ApertureSelection {
         id: apertureSelectionDialog
+    }
+
+    CameraSelection {
+        id: cameraSelectionDialog
     }
 }

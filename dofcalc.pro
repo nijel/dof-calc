@@ -38,7 +38,8 @@ OTHER_FILES += \
     qtc_packaging/debian_harmattan/compat \
     qtc_packaging/debian_harmattan/changelog \
     qml/FocalSelection.qml \
-    qml/ApertureSelection.qml
+    qml/ApertureSelection.qml \
+    qml/CameraSelection.qml
 
 RESOURCES += \
     res.qrc

@@ -4,5 +4,6 @@
         <file>qml/MainPage.qml</file>
         <file>qml/FocalSelection.qml</file>
         <file>qml/ApertureSelection.qml</file>
+        <file>qml/CameraSelection.qml</file>
     </qresource>
 </RCC>
