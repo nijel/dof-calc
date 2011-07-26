@@ -4,7 +4,7 @@ import com.meego 1.0
 SelectionDialog {
     id: apertureSelection
     titleText: qsTr("Aperture")
-    selectedIndex: 10
+    selectedIndex: 9
     model: apertureModel
     property string selected: apertureModel.get(selectedIndex).name
     property double value: parseFloat(apertureModel.get(selectedIndex).name.substring(2))

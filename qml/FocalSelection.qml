@@ -4,7 +4,7 @@ import com.meego 1.0
 SelectionDialog {
     id: focalSelection
     titleText: qsTr("Focal length")
-    selectedIndex: 3
+    selectedIndex: 2
     model: focalModel
     property string selected: focalModel.get(focalSelectionDialog.selectedIndex).name
     property int value: parseInt(focalModel.get(focalSelectionDialog.selectedIndex).name)

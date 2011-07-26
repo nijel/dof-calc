@@ -4,7 +4,7 @@ import com.meego 1.0
 SelectionDialog {
     id: cameraSelection
     titleText: qsTr("Camera")
-    selectedIndex: 1
+    selectedIndex: 0
     model: cameraModel
     property string selected: cameraModel.get(selectedIndex).name
     property double value: cameraModel.get(selectedIndex).coc
