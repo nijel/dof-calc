@@ -12,15 +12,16 @@ Page {
         spacing: 5
 
         Label {
-            text: qsTr("Focal length:") + " " + focalSlider.value + " mm"
+            text: qsTr("Focal length:")
         }
 
-        Slider {
-            id: focalSlider
-            minimumValue: 1
-            maximumValue: 300
-            stepSize: 1
-            value: 35
+        Button {
+            id: focal
+            text: selected
+            onClicked: focalSelectionDialog.open()
+            property string selected: focalSelectionDialog.selected
+            property int value: focalSelectionDialog.value
+
         }
 
         Label {
@@ -50,7 +51,7 @@ Page {
         Label {
             text: qsTr("Hyperfocal distance:") + " " + (Math.round(value / 100) / 10) + " m"
             id: hyperFocal
-            property int value: (((focalSlider.value * focalSlider.value) / (0.020 * apertureSlider.value / 10)) + focalSlider.value)
+            property int value: (((focal.value * focal.value) / (0.020 * apertureSlider.value / 10)) + focal.value)
         }
 
         Label {
@@ -60,13 +61,13 @@ Page {
         Label {
             text: "  " + qsTr("Near limit:") + " " + (Math.round(value / 100) / 10) + " m"
             id: nearLimit
-            property int value:  ((hyperFocal.value - focalSlider.value) * distanceSlider.value) / (hyperFocal.value + distanceSlider.value - (2 * focalSlider.value));
+            property int value:  ((hyperFocal.value - focal.value) * distanceSlider.value) / (hyperFocal.value + distanceSlider.value - (2 * focal.value));
         }
 
         Label {
             text: "  " + qsTr("Far limit:") + " " + (value >= 10000000 ? qsTr("infinity") : (Math.round(value / 100) / 10) + " m")
             id: farLimit
-            property int value: (hyperFocal.value - distanceSlider.value <= 0) ? 10000000 : (((hyperFocal.value - focalSlider.value) * distanceSlider.value) / (hyperFocal.value - distanceSlider.value));
+            property int value: (hyperFocal.value - distanceSlider.value <= 0) ? 10000000 : (((hyperFocal.value - focal.value) * distanceSlider.value) / (hyperFocal.value - distanceSlider.value));
         }
 
         Label {
@@ -75,17 +76,7 @@ Page {
         }
     }
 
-    ListModel {
-        id: focalModel
-        ListElement { name: "15 mm" }
-        ListElement { name: "35 mm" }
-        ListElement { name: "50 mm" }
-    }
-
-    SelectionDialog {
+    FocalSelection {
         id: focalSelectionDialog
-        titleText: "Focal length"
-        selectedIndex: 1
-        model: focalModel
     }
 }
