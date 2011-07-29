@@ -14,104 +14,104 @@ Page {
         anchors.right: parent.right
         spacing: 10
 
-    Column {
-        id: inputColumn
+        Column {
+            id: inputColumn
 
-        spacing: 5
+            spacing: 5
 
-        Label {
-            text: qsTr("Camera:")
-        }
+            Label {
+                text: qsTr("Camera:")
+            }
 
-        Button {
-            id: camera
-            text: selected
-            onClicked: cameraSelectionDialog.open()
-            property string selected: cameraSelectionDialog.selected
-            property double value: cameraSelectionDialog.value
+            Button {
+                id: camera
+                text: selected
+                onClicked: cameraSelectionDialog.open()
+                property string selected: cameraSelectionDialog.selected
+                property double value: cameraSelectionDialog.value
 
-        }
+            }
 
-        Label {
-            text: qsTr("Focal length:")
-        }
+            Label {
+                text: qsTr("Focal length:")
+            }
 
-        Button {
-            id: focal
-            text: selected
-            onClicked: focalSelectionDialog.open()
-            property string selected: focalSelectionDialog.selected
-            property int value: focalSelectionDialog.value
+            Button {
+                id: focal
+                text: selected
+                onClicked: focalSelectionDialog.open()
+                property string selected: focalSelectionDialog.selected
+                property int value: focalSelectionDialog.value
 
-        }
+            }
 
-        Label {
-            text: qsTr("Aperture:")
-        }
+            Label {
+                text: qsTr("Aperture:")
+            }
 
-        Button {
-            id: aperture
-            text: selected
-            onClicked: apertureSelectionDialog.open()
-            property string selected: apertureSelectionDialog.selected
-            property double value: apertureSelectionDialog.value
-        }
+            Button {
+                id: aperture
+                text: selected
+                onClicked: apertureSelectionDialog.open()
+                property string selected: apertureSelectionDialog.selected
+                property double value: apertureSelectionDialog.value
+            }
 
-        Label {
-            text: qsTr("Distance:") + " " + (distanceSlider.value / 1000) + " m"
-        }
+            Label {
+                text: qsTr("Distance:") + " " + (distanceSlider.value / 1000) + " m"
+            }
 
-        Slider {
-            id: distanceSlider
-            minimumValue: 100
-            maximumValue: 100000
-            stepSize: 100
-            value: 10000
-        }
+            Slider {
+                id: distanceSlider
+                minimumValue: 100
+                maximumValue: 100000
+                stepSize: 100
+                value: 10000
+            }
 
-    }
-
-    Column {
-
-        spacing: 25
-        id: displayColumn
-
-        Label {
-            text: qsTr("Hyperfocal distance:") + " " + (Math.round(value / 100) / 10) + " m"
-            id: hyperFocal
-            property int value: (((focal.value * focal.value) / (camera.value * aperture.value)) + focal.value)
-        }
-
-        Label {
-            text: qsTr("Circle of confusion:") + " " + camera.value + " mm"
         }
 
         Column {
-            spacing: 5
+
+            spacing: 25
+            id: displayColumn
+
+            Label {
+                text: qsTr("Hyperfocal distance:") + " " + (Math.round(value / 100) / 10) + " m"
+                id: hyperFocal
+                property int value: (((focal.value * focal.value) / (camera.value * aperture.value)) + focal.value)
+            }
+
+            Label {
+                text: qsTr("Circle of confusion:") + " " + camera.value + " mm"
+            }
+
+            Column {
+                spacing: 5
 
 
-        Label {
-            text: qsTr("Depth of field:")
-        }
+                Label {
+                    text: qsTr("Depth of field:")
+                }
 
-        Label {
-            text: "  " + qsTr("Near limit:") + " " + (Math.round(value / 100) / 10) + " m"
-            id: nearLimit
-            property int value:  ((hyperFocal.value - focal.value) * distanceSlider.value) / (hyperFocal.value + distanceSlider.value - (2 * focal.value));
-        }
+                Label {
+                    text: "  " + qsTr("Near limit:") + " " + (Math.round(value / 100) / 10) + " m"
+                    id: nearLimit
+                    property int value:  ((hyperFocal.value - focal.value) * distanceSlider.value) / (hyperFocal.value + distanceSlider.value - (2 * focal.value));
+                }
 
-        Label {
-            text: "  " + qsTr("Far limit:") + " " + (value >= 10000000 ? qsTr("infinity") : (Math.round(value / 100) / 10) + " m")
-            id: farLimit
-            property int value: (hyperFocal.value - distanceSlider.value <= 0) ? 10000000 : (((hyperFocal.value - focal.value) * distanceSlider.value) / (hyperFocal.value - distanceSlider.value));
-        }
+                Label {
+                    text: "  " + qsTr("Far limit:") + " " + (value >= 10000000 ? qsTr("infinity") : (Math.round(value / 100) / 10) + " m")
+                            id: farLimit
+                    property int value: (hyperFocal.value - distanceSlider.value <= 0) ? 10000000 : (((hyperFocal.value - focal.value) * distanceSlider.value) / (hyperFocal.value - distanceSlider.value));
+                }
 
-        Label {
-            text: "  " + qsTr("Total:") + " " + (farLimit.value >= 10000000 ? qsTr("infinite") : (Math.round((farLimit.value - nearLimit.value) / 100) / 10) + " m")
-            id: dofTotal
+                Label {
+                    text: "  " + qsTr("Total:") + " " + (farLimit.value >= 10000000 ? qsTr("infinite") : (Math.round((farLimit.value - nearLimit.value) / 100) / 10) + " m")
+                    id: dofTotal
+                }
+            }
         }
-        }
-    }
     }
 
     FocalSelection {
