@@ -102,13 +102,25 @@ Page {
 
                 Label {
                     text: "  " + qsTr("Far limit:") + " " + (value >= 10000000 ? qsTr("infinity") : (Math.round(value / 100) / 10) + " m")
-                            id: farLimit
+                    id: farLimit
                     property int value: (hyperFocal.value - distanceSlider.value <= 0) ? 10000000 : (((hyperFocal.value - focal.value) * distanceSlider.value) / (hyperFocal.value - distanceSlider.value));
                 }
 
                 Label {
                     text: "  " + qsTr("Total:") + " " + (farLimit.value >= 10000000 ? qsTr("infinite") : (Math.round((farLimit.value - nearLimit.value) / 100) / 10) + " m")
                     id: dofTotal
+                }
+            }
+
+            Column {
+                spacing: 5
+
+                Label {
+                    text: "  " + qsTr("In front of subject:") + " " + (Math.round((distanceSlider.value - nearLimit.value) / 100) / 10) + " m"
+                }
+
+                Label {
+                    text: "  " + qsTr("Behind subject:") + " " + (farLimit.value >= 10000000 ? qsTr("infinite") : (Math.round((farLimit.value - distanceSlider.value) / 100) / 10) + " m")
                 }
             }
         }
