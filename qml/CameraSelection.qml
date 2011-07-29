@@ -1,10 +1,10 @@
 import QtQuick 1.1
 import com.meego 1.0
+import "../js/settings.js" as Settings
 
 SelectionDialog {
     id: cameraSelection
     titleText: qsTr("Camera")
-    selectedIndex: 2
     model: cameraModel
     property string selected: cameraModel.get(selectedIndex).name
     property double value: cameraModel.get(selectedIndex).coc
@@ -17,5 +17,20 @@ SelectionDialog {
         ListElement { name: "Canon APS-H (crop 1.3)"; coc: 0.023 }
         ListElement { name: "Full frame SLR"; coc: 0.030 }
         ListElement { name: "Pentax 645D"; coc: 0.050 }
+    }
+
+    Component.onCompleted: {
+        Settings.initialize();
+        var saved_camera = Settings.getSetting("camera", "APS-C DSLR (crop 1.5)");
+        for(var i = 0; i < cameraModel.count; i++) {
+            if (cameraModel.get(i).name == saved_camera) {
+                cameraSelection.selectedIndex = i;
+                break;
+            }
+        }
+    }
+
+    Component.onDestruction: {
+        Settings.setSetting("camera", cameraSelection.selected);
     }
 }
