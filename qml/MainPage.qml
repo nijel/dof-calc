@@ -73,7 +73,7 @@ Page {
 
     Column {
 
-        spacing: 5
+        spacing: 25
         id: displayColumn
 
         Label {
@@ -81,6 +81,14 @@ Page {
             id: hyperFocal
             property int value: (((focal.value * focal.value) / (camera.value * aperture.value)) + focal.value)
         }
+
+        Label {
+            text: qsTr("Circle of confusion:") + " " + camera.value + " mm"
+        }
+
+        Column {
+            spacing: 5
+
 
         Label {
             text: qsTr("Depth of field:")
@@ -101,6 +109,7 @@ Page {
         Label {
             text: "  " + qsTr("Total:") + " " + (farLimit.value >= 10000000 ? qsTr("infinite") : (Math.round((farLimit.value - nearLimit.value) / 100) / 10) + " m")
             id: dofTotal
+        }
         }
     }
     }
