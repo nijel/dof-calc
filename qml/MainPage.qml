@@ -5,9 +5,17 @@ Page {
     id: mainPage
     tools: commonTools
 
+    Grid {
+        columns: screen.currentOrientation == Screen.Landscape || screen.currentOrientation == Screen.LandscapeInverted ? 2 : 1
+        anchors.margins: 10
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        spacing: 10
+
     Column {
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
+        id: inputColumn
 
         spacing: 5
 
@@ -61,6 +69,13 @@ Page {
             value: 10000
         }
 
+    }
+
+    Column {
+
+        spacing: 5
+        id: displayColumn
+
         Label {
             text: qsTr("Hyperfocal distance:") + " " + (Math.round(value / 100) / 10) + " m"
             id: hyperFocal
@@ -87,6 +102,7 @@ Page {
             text: "  " + qsTr("Total:") + " " + (farLimit.value >= 10000000 ? qsTr("infinite") : (Math.round((farLimit.value - nearLimit.value) / 100) / 10) + " m")
             id: dofTotal
         }
+    }
     }
 
     FocalSelection {
