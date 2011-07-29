@@ -12,7 +12,7 @@ function initialize() {
             // Create the settings table if it doesn't already exist
             // If the table exists, this is skipped
             tx.executeSql('CREATE TABLE IF NOT EXISTS settings(setting TEXT UNIQUE, value TEXT)');
-            tx.executeSql('CREATE TABLE IF NOT EXISTS camera(setting TEXT UNIQUE, coc INT)');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS camera(name TEXT UNIQUE, coc INT)');
             tx.executeSql('CREATE TABLE IF NOT EXISTS lens(focal FLOAT UNIQUE)');
             tx.executeSql('CREATE TABLE IF NOT EXISTS aperture(fstop FLOAT UNIQUE)');
           });
@@ -48,4 +48,31 @@ function getSetting(setting, defaultval) {
      }
   })
   return res
+}
+
+function getCameras() {
+    var db = getDatabase();
+    var res = Array();
+    db.transaction(function(tx) {
+        var rs = tx.executeSql('SELECT * FROM camera');
+        for (var i = 0; i < rs.rows.length; i++) {
+            res.push({'name': rs.rows.item(i).name, 'coc': rs.rows.item(i).coc})
+        }
+   })
+   return res
+}
+
+function addCamera(name, coc) {
+    var db = getDatabase();
+    var res = "";
+    db.transaction(function(tx) {
+         var rs = tx.executeSql('INSERT OR REPLACE INTO camera VALUES (?,?);', [name, coc]);
+               if (rs.rowsAffected > 0) {
+                 res = "OK";
+               } else {
+                 res = "Error";
+               }
+         }
+   );
+   return res;
 }
