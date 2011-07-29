@@ -9,6 +9,8 @@ SelectionDialog {
     property string selected: cameraModel.get(selectedIndex).name
     property double value: cameraModel.get(selectedIndex).coc
 
+    onAccepted: Settings.setSetting("camera", cameraSelection.selected);
+
     ListModel {
         id: cameraModel
     }
@@ -41,7 +43,4 @@ SelectionDialog {
         }
     }
 
-    Component.onDestruction: {
-        Settings.setSetting("camera", cameraSelection.selected);
-    }
 }
