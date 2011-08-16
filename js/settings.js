@@ -13,8 +13,8 @@ function initialize() {
             // If the table exists, this is skipped
             tx.executeSql('CREATE TABLE IF NOT EXISTS settings(setting TEXT UNIQUE, value TEXT)');
             tx.executeSql('CREATE TABLE IF NOT EXISTS camera(name TEXT UNIQUE, coc INT)');
-            tx.executeSql('CREATE TABLE IF NOT EXISTS lens(focal FLOAT UNIQUE)');
-            tx.executeSql('CREATE TABLE IF NOT EXISTS aperture(fstop FLOAT UNIQUE)');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS lens(focal INT UNIQUE)');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS aperture(fstop INT UNIQUE)');
           });
 }
 
@@ -67,6 +67,33 @@ function addCamera(name, coc) {
     var res = "";
     db.transaction(function(tx) {
          var rs = tx.executeSql('INSERT OR REPLACE INTO camera VALUES (?,?);', [name, coc]);
+               if (rs.rowsAffected > 0) {
+                 res = "OK";
+               } else {
+                 res = "Error";
+               }
+         }
+   );
+   return res;
+}
+
+function getFocals() {
+    var db = getDatabase();
+    var res = Array();
+    db.transaction(function(tx) {
+        var rs = tx.executeSql('SELECT * FROM lens');
+        for (var i = 0; i < rs.rows.length; i++) {
+            res.push({'name': rs.rows.item(i).focal + ' mm', 'focal': rs.rows.item(i).focal})
+        }
+   })
+   return res
+}
+
+function addFocal(focal) {
+    var db = getDatabase();
+    var res = "";
+    db.transaction(function(tx) {
+         var rs = tx.executeSql('INSERT OR REPLACE INTO lens VALUES (?);', [focal]);
                if (rs.rowsAffected > 0) {
                  res = "OK";
                } else {
