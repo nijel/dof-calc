@@ -40,7 +40,8 @@ OTHER_FILES += \
     qml/FocalSelection.qml \
     qml/ApertureSelection.qml \
     qml/CameraSelection.qml \
-    js/settings.js
+    js/settings.js \
+    dofcalc-256.png
 
 RESOURCES += \
     res.qrc
