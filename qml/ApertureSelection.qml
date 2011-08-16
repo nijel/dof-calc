@@ -1,33 +1,57 @@
 import QtQuick 1.1
 import com.meego 1.0
+import "../js/settings.js" as Settings
 
 SelectionDialog {
     id: apertureSelection
     titleText: qsTr("Aperture")
-    selectedIndex: 9
     model: apertureModel
     property string selected: apertureModel.get(selectedIndex).name
-    property double value: parseFloat(apertureModel.get(selectedIndex).name.substring(2))
+    property double value: apertureModel.get(selectedIndex).fstop
+
+    onAccepted: Settings.setSetting("aperture", value);
 
     ListModel {
         id: apertureModel
-        ListElement { name: "f/1.0" }
-        ListElement { name: "f/1.2" }
-        ListElement { name: "f/1.4" }
-        ListElement { name: "f/1.7" }
-        ListElement { name: "f/2.0" }
-        ListElement { name: "f/2.2" }
-        ListElement { name: "f/2.4" }
-        ListElement { name: "f/2.8" }
-        ListElement { name: "f/3.2" }
-        ListElement { name: "f/4.0" }
-        ListElement { name: "f/5.6" }
-        ListElement { name: "f/6.7" }
-        ListElement { name: "f/8.0" }
-        ListElement { name: "f/11.0" }
-        ListElement { name: "f/16.0" }
-        ListElement { name: "f/20.0" }
-        ListElement { name: "f/28.0" }
-        ListElement { name: "f/32.0" }
+    }
+
+    Component.onCompleted: {
+        Settings.initialize();
+        var apertures = Settings.getApertures();
+        if (apertures.length == 0) {
+            // Add defaults
+            Settings.addAperture(1.0);
+            Settings.addAperture(1.2);
+            Settings.addAperture(1.4);
+            Settings.addAperture(1.7);
+            Settings.addAperture(2.0);
+            Settings.addAperture(2.2);
+            Settings.addAperture(2.4);
+            Settings.addAperture(2.8);
+            Settings.addAperture(3.2);
+            Settings.addAperture(4.0);
+            Settings.addAperture(5.6);
+            Settings.addAperture(6.7);
+            Settings.addAperture(8.0);
+            Settings.addAperture(11.0);
+            Settings.addAperture(16.0);
+            Settings.addAperture(20.0);
+            Settings.addAperture(28.0);
+            Settings.addAperture(32.0);
+            // Reload
+            apertures = Settings.getApertures();
+        }
+
+        for (var i = 0; i < apertures.length; i++) {
+            apertureModel.append({name: apertures[i]['name'], fstop: apertures[i]['fstop']});
+        }
+
+        var saved_aperture = Math.round(Settings.getSetting("aperture", 2.8));
+        for(var i = 0; i < apertureModel.count; i++) {
+            if (Math.round(apertureModel.get(i).fstop * 10) == Math.round(saved_aperture * 10)) {
+                apertureSelection.selectedIndex = i;
+                break;
+            }
+        }
     }
 }

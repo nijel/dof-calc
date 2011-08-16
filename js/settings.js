@@ -103,3 +103,30 @@ function addFocal(focal) {
    );
    return res;
 }
+
+function getApertures() {
+    var db = getDatabase();
+    var res = Array();
+    db.transaction(function(tx) {
+        var rs = tx.executeSql('SELECT * FROM aperture');
+        for (var i = 0; i < rs.rows.length; i++) {
+            res.push({'name': 'f/' + rs.rows.item(i).fstop, 'fstop': rs.rows.item(i).fstop})
+        }
+   })
+   return res
+}
+
+function addAperture(fstop) {
+    var db = getDatabase();
+    var res = "";
+    db.transaction(function(tx) {
+         var rs = tx.executeSql('INSERT OR REPLACE INTO aperture VALUES (?);', [fstop]);
+               if (rs.rowsAffected > 0) {
+                 res = "OK";
+               } else {
+                 res = "Error";
+               }
+         }
+   );
+   return res;
+}
