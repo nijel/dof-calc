@@ -13,25 +13,14 @@ PageStackWindow {
         visible: true
         ToolIcon {
             platformIconId: "toolbar-application";
+            onClicked: aboutDialog.open();
         }
         ToolIcon {
             platformIconId: "toolbar-settings";
         }
-        ToolIcon {
-            platformIconId: "toolbar-view-menu";
-            anchors.right: parent===undefined ? undefined : parent.right
-            onClicked: (myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()
-        }
     }
 
-    Menu {
-        id: myMenu
-        visualParent: pageStack
-        MenuLayout {
-            MenuItem {
-                text: "About";
-                onClicked:
-            }
-        }
+    AboutDialog {
+        id: aboutDialog;
     }
 }

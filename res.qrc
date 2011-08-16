@@ -5,6 +5,7 @@
         <file>qml/FocalSelection.qml</file>
         <file>qml/ApertureSelection.qml</file>
         <file>qml/CameraSelection.qml</file>
+        <file>qml/AboutDialog.qml</file>
         <file>js/settings.js</file>
     </qresource>
 </RCC>

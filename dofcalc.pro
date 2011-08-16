@@ -41,7 +41,8 @@ OTHER_FILES += \
     qml/ApertureSelection.qml \
     qml/CameraSelection.qml \
     js/settings.js \
-    dofcalc-256.png
+    dofcalc-256.png \
+    qml/AboutDialog.qml
 
 RESOURCES += \
     res.qrc
