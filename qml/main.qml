@@ -11,9 +11,16 @@ PageStackWindow {
     ToolBarLayout {
         id: commonTools
         visible: true
-        ToolIcon { platformIconId: "toolbar-view-menu";
-             anchors.right: parent===undefined ? undefined : parent.right
-             onClicked: (myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()
+        ToolIcon {
+            platformIconId: "toolbar-application";
+        }
+        ToolIcon {
+            platformIconId: "toolbar-settings";
+        }
+        ToolIcon {
+            platformIconId: "toolbar-view-menu";
+            anchors.right: parent===undefined ? undefined : parent.right
+            onClicked: (myMenu.status == DialogStatus.Closed) ? myMenu.open() : myMenu.close()
         }
     }
 
@@ -21,7 +28,10 @@ PageStackWindow {
         id: myMenu
         visualParent: pageStack
         MenuLayout {
-            MenuItem { text: "Sample menu item" }
+            MenuItem {
+                text: "About";
+                onClicked:
+            }
         }
     }
 }
