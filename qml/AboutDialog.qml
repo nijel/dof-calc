@@ -7,9 +7,8 @@ import com.meego 1.0
         id: titleField
         height: 40
         width: parent.width
-        Text {
-            id: titleText
-            font.pixelSize: 34
+        Label {
+            font.pixelSize: 38
             anchors.centerIn: parent
             color: "white"
             text: "DOF Calc"
@@ -18,14 +17,31 @@ import com.meego 1.0
 
     content:Item {
         id: contentField
-        height: 130
+        height: 170
         width: parent.width
-        Text {
-            id: contentText
-            font.pixelSize: 20
+        Column {
+            spacing: 5
             anchors.centerIn: parent
-            color: "white"
-            text: "Depth of field calculator\nVersion: 0.0.2\nCopyright (c) 2011 Michal Čihař\nEmail: <michal@cihar.com>\nWebsite: http://gitorious.org/dofcalc"
+            Label {
+                color: "white"
+                text: qsTr("Depth of field calculator")
+            }
+            Label {
+                color: "white"
+                text: qsTr("Version:") + "0.0.2"
+            }
+            Label {
+                color: "white"
+                text: "Copyright (c) 2011 Michal Čihař"
+            }
+            Label {
+                color: "white"
+                text: qsTr("Email:") + " <michal@cihar.com>"
+            }
+            Label {
+                color: "white"
+                text: qsTr("Website:") + " http://gitorious.org/dofcalc"
+            }
         }
     }
 
