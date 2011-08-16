@@ -12,12 +12,17 @@ SelectionDialog {
     ListModel {
         id: focalModel
         ListElement { name: "15 mm" }
+        ListElement { name: "24 mm" }
+        ListElement { name: "31 mm" }
         ListElement { name: "35 mm" }
         ListElement { name: "50 mm" }
+        ListElement { name: "55 mm" }
         ListElement { name: "70 mm" }
+        ListElement { name: "85 mm" }
         ListElement { name: "100 mm" }
         ListElement { name: "135 mm" }
         ListElement { name: "150 mm" }
+        ListElement { name: "180 mm" }
         ListElement { name: "200 mm" }
         ListElement { name: "300 mm" }
     }
