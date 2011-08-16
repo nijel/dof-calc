@@ -20,7 +20,7 @@ SelectionDialog {
         var cameras = Settings.getCameras();
         if (cameras.length == 0) {
             // Add defaults
-            console.log('text' + Settings.addCamera("Four thirds (crop 2)", 0.015 ));
+            Settings.addCamera("Four thirds (crop 2)", 0.015 );
             Settings.addCamera("Canon APS-C (crop 1.6)", 0.019 );
             Settings.addCamera("APS-C DSLR (crop 1.5)", 0.020 );
             Settings.addCamera("Canon APS-H (crop 1.3)", 0.023 );
