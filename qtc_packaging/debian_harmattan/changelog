@@ -1,4 +1,10 @@
-dofcalc (0.0.1) unstable; urgency=low
+dofcalc (0.0.2) unstable; urgency=low
+
+  * Fixed saving of aperture.
+
+ -- Michal Čihař <nijel@debian.org>  Tue, 16 Aug 2011 12:51:13 +0200
+
+dofcalc (0.0.2) unstable; urgency=low
 
   * Initial Release.
 

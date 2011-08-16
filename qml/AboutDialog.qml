@@ -25,7 +25,7 @@ import com.meego 1.0
             font.pixelSize: 20
             anchors.centerIn: parent
             color: "white"
-            text: "Depth of field calculator\nVersion: 0.0.1\nCopyright (c) 2011 Michal Čihař\nEmail: <michal@cihar.com>\nWebsite: http://gitorious.org/dofcalc"
+            text: "Depth of field calculator\nVersion: 0.0.2\nCopyright (c) 2011 Michal Čihař\nEmail: <michal@cihar.com>\nWebsite: http://gitorious.org/dofcalc"
         }
     }
 

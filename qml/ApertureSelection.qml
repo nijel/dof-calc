@@ -46,7 +46,7 @@ SelectionDialog {
             apertureModel.append({name: apertures[i]['name'], fstop: apertures[i]['fstop']});
         }
 
-        var saved_aperture = Math.round(Settings.getSetting("aperture", 2.8));
+        var saved_aperture = Settings.getSetting("aperture", 2.8);
         for(var i = 0; i < apertureModel.count; i++) {
             if (Math.round(apertureModel.get(i).fstop * 10) == Math.round(saved_aperture * 10)) {
                 apertureSelection.selectedIndex = i;
