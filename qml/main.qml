@@ -15,9 +15,11 @@ PageStackWindow {
             platformIconId: "toolbar-application";
             onClicked: aboutDialog.open();
         }
+        /* Not implemented
         ToolIcon {
             platformIconId: "toolbar-settings";
         }
+        */
     }
 
     AboutDialog {
