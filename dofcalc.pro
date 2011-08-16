@@ -32,7 +32,6 @@ OTHER_FILES += \
     dofcalc.svg \
     dofcalc.png \
     qtc_packaging/debian_harmattan/rules \
-    qtc_packaging/debian_harmattan/README \
     qtc_packaging/debian_harmattan/copyright \
     qtc_packaging/debian_harmattan/control \
     qtc_packaging/debian_harmattan/compat \
