@@ -5,7 +5,7 @@ Type=Application
 Terminal=false
 Name=DOF Calc
 Exec=invoker --single-instance --type=d /opt/dofcalc/bin/dofcalc
-Icon=/usr/share/icons/hicolor/scalable/apps/dofcalc.svg
+Icon=/usr/share/icons/hicolor/64x64/apps/dofcalc.png
 X-Window-Icon=
 X-HildonDesk-ShowInToolbar=true
 X-Osso-Type=application/x-executable
