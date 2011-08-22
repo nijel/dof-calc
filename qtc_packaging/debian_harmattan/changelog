@@ -1,8 +1,8 @@
 dofcalc (0.0.3) unstable; urgency=low
 
-  * 
+  * Fix single instance behaviour exposed by QTC bug.
 
- -- Michal Čihař <nijel@debian.org>  Fri, 19 Aug 2011 08:43:14 +0200
+ -- Michal Čihař <nijel@debian.org>  Mon, 22 Aug 2011 10:08:40 +0200
 
 dofcalc (0.0.2) unstable; urgency=low
 
