@@ -25,4 +25,7 @@ PageStackWindow {
     AboutDialog {
         id: aboutDialog;
     }
+    Component.onCompleted: {
+        theme.inverted = true;
+    }
 }
