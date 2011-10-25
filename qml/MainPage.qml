@@ -13,10 +13,13 @@ Page {
         anchors.left: parent.left
         anchors.bottom: parent.bottom
         anchors.right: parent.right
+        anchors.fill: parent
         spacing: 10
+        id: mainGrid
 
         Column {
             id: inputColumn
+            width: mainGrid.columns == 1 ? mainPage.width - 30 : (mainPage.width / 2) - 30
 
             spacing: 5
 
@@ -30,6 +33,8 @@ Page {
                 onClicked: cameraSelectionDialog.open()
                 property string selected: cameraSelectionDialog.selected
                 property double value: cameraSelectionDialog.value
+                anchors.left: inputColumn.left
+                anchors.right: inputColumn.right
 
             }
 
@@ -43,6 +48,8 @@ Page {
                 onClicked: focalSelectionDialog.open()
                 property string selected: focalSelectionDialog.selected
                 property int value: focalSelectionDialog.value
+                anchors.left: inputColumn.left
+                anchors.right: inputColumn.right
 
             }
 
@@ -56,6 +63,8 @@ Page {
                 onClicked: apertureSelectionDialog.open()
                 property string selected: apertureSelectionDialog.selected
                 property double value: apertureSelectionDialog.value
+                anchors.left: inputColumn.left
+                anchors.right: inputColumn.right
             }
 
             Label {
@@ -68,6 +77,8 @@ Page {
                 maximumValue: 100000
                 stepSize: 100
                 value: 10000
+                anchors.left: inputColumn.left
+                anchors.right: inputColumn.right
             }
 
         }
