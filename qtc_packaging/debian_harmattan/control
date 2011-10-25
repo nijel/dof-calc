@@ -12,7 +12,9 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Depth of field calculator
  DOF Calc helps you calculate the depth of field in your photographs.
  It will help you choose right f/stop to produce depth of field you
- want. It also calculates hyperfocal distance. Compatible with all cameras.
+ want. It also calculates hyperfocal distance.
+ .
+ Compatible with all cameras and lenses as it is fully customizable.
 XSBC-Maemo-Display-Name: DOF Calc
 XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAABmJLR0QA/wD/AP+gvaeTAAARVUlE
