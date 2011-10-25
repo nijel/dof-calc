@@ -1,6 +1,6 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
-
+import com.nokia.extras 1.1
 Page {
     tools: commonTools
 
@@ -11,16 +11,21 @@ Page {
             height: 55
             clip: true
 
-            Row {
-                spacing: 10
-                Label {
-                    text: name
-                    width: apertureList.width - 60
+            Label {
+                text: name
+                width: apertureList.width - 60
+                anchors {
+                    top: parent.top
+                    left: parent.left
                 }
-                Button {
-                    text: "-"
-                    width: 50
-                    onClicked: apertureModel.deleteAperture(fstop)
+            }
+            ListButton {
+                text: "-"
+                width: 50
+                onClicked: apertureModel.deleteAperture(fstop)
+                anchors {
+                    top: parent.top
+                    right: parent.right
                 }
             }
         }

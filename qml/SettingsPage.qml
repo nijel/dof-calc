@@ -34,7 +34,7 @@ Page {
                     style: ListButtonStyle {}
                 }
 
-                TumblerButton {
+                Button {
                     text: qsTr("Apertures")
                     onClicked: appWindow.pageStack.push(apertureEditPage);
                 }
