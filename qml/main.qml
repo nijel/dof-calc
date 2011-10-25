@@ -39,6 +39,9 @@ PageStackWindow {
     ApertureEdit {
         id: apertureEditPage;
     }
+    CameraModel {
+        id: cameraModel;
+    }
 
     Component.onCompleted: {
         theme.inverted = true;
