@@ -19,7 +19,7 @@ Page {
 
                 Label {
                     text: qsTr("Choices")
-                    font.pixelSize: 26
+                    font.pixelSize: platformStyle.fontPixelSize*1.5
                     font.weight: Font.DemiBold
                 }
 
@@ -34,6 +34,7 @@ Page {
 
                 Button {
                     text: qsTr("Apertures")
+                    onClicked: appWindow.pageStack.push(apertureEditPage);
                 }
           }
 
@@ -42,12 +43,10 @@ Page {
 
               Label {
                   text: qsTr("Appearance")
-                  font.pixelSize: 26
+                  font.pixelSize: platformStyle.fontPixelSize*1.5
                   visible: false
                   font.weight: Font.DemiBold
               }
-
           }
-
     }
 }

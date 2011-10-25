@@ -43,7 +43,8 @@ OTHER_FILES += \
     dofcalc-256.png \
     qml/AboutDialog.qml \
     qml/SettingsPage.qml \
-    qml/ApertureModel.qml
+    qml/ApertureModel.qml \
+    qml/ApertureEdit.qml
 
 RESOURCES += \
     res.qrc
@@ -56,5 +57,6 @@ qtcAddDeployment()
 CONFIG += qdeclarative-boostable
 QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
 QMAKE_LFLAGS += -pie -rdynamic
+
 
 
