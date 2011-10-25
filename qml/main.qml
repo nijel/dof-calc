@@ -48,6 +48,9 @@ PageStackWindow {
     FocalModel {
         id: focalModel;
     }
+    FocalEdit {
+        id: focalEditPage;
+    }
 
     Component.onCompleted: {
         theme.inverted = true;

@@ -32,7 +32,7 @@ Page {
 
                 Button {
                     text: qsTr("Lenses")
-                    style: ListButtonStyle {}
+                    onClicked: appWindow.pageStack.push(focalEditPage);
                 }
 
                 Button {

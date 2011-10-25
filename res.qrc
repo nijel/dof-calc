@@ -14,5 +14,7 @@
         <file>qml/CameraModel.qml</file>
         <file>qml/CameraEdit.qml</file>
         <file>qml/FocalModel.qml</file>
+        <file>qml/FocalEdit.qml</file>
+        <file>qml/FocalThumbler.qml</file>
     </qresource>
 </RCC>

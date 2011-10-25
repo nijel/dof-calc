@@ -6,7 +6,7 @@ TumblerDialog {
 
     id: tDialog
     titleText: qsTr("Aperture")
-    acceptButtonText: qsTr("Ok")
+    acceptButtonText: qsTr("Add")
     rejectButtonText: qsTr("Cancel")
     columns: [ numberColumn, decimalColumn ]
     onAccepted: apertureModel.addAperture(numberColumn.selectedIndex + (decimalColumn.selectedIndex / 10))
