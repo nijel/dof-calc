@@ -45,6 +45,9 @@ PageStackWindow {
     CameraEdit {
         id: cameraEditPage;
     }
+    FocalModel {
+        id: focalModel;
+    }
 
     Component.onCompleted: {
         theme.inverted = true;

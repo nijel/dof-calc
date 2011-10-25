@@ -13,5 +13,6 @@
         <file>qml/ApertureThumbler.qml</file>
         <file>qml/CameraModel.qml</file>
         <file>qml/CameraEdit.qml</file>
+        <file>qml/FocalModel.qml</file>
     </qresource>
 </RCC>
