@@ -8,5 +8,6 @@
         <file>qml/AboutDialog.qml</file>
         <file>js/settings.js</file>
         <file>qml/SettingsPage.qml</file>
+        <file>qml/ApertureModel.qml</file>
     </qresource>
 </RCC>

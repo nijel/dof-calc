@@ -33,6 +33,10 @@ PageStackWindow {
     SettingsPage {
         id: settingsPage;
     }
+    ApertureModel {
+        id: apertureModel;
+    }
+
     Component.onCompleted: {
         theme.inverted = true;
     }
