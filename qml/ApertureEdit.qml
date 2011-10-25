@@ -57,7 +57,7 @@ Page {
         }
         Button {
             text: qsTr("Add new")
-            onClicked: apertureModel.addAperture(44);
+            onClicked: atDialog.open();
         }
         Button {
             text: qsTr("Reset")
@@ -68,5 +68,9 @@ Page {
 
     ScrollDecorator {
         flickableItem: apertureList
+    }
+
+    ApertureThumbler {
+        id: atDialog
     }
 }

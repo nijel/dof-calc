@@ -10,5 +10,6 @@
         <file>qml/SettingsPage.qml</file>
         <file>qml/ApertureModel.qml</file>
         <file>qml/ApertureEdit.qml</file>
+        <file>qml/ApertureThumbler.qml</file>
     </qresource>
 </RCC>

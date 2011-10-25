@@ -1,5 +1,6 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
+import com.nokia.extras 1.1
 
 Page {
     id: mainPage
@@ -23,7 +24,7 @@ Page {
                 text: qsTr("Camera:")
             }
 
-            Button {
+            TumblerButton {
                 id: camera
                 text: selected
                 onClicked: cameraSelectionDialog.open()
@@ -36,7 +37,7 @@ Page {
                 text: qsTr("Focal length:")
             }
 
-            Button {
+            TumblerButton {
                 id: focal
                 text: selected
                 onClicked: focalSelectionDialog.open()
@@ -49,7 +50,7 @@ Page {
                 text: qsTr("Aperture:")
             }
 
-            Button {
+            TumblerButton {
                 id: aperture
                 text: selected
                 onClicked: apertureSelectionDialog.open()

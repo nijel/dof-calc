@@ -54,7 +54,7 @@ function getCameras() {
     var db = getDatabase();
     var res = Array();
     db.transaction(function(tx) {
-        var rs = tx.executeSql('SELECT * FROM camera');
+        var rs = tx.executeSql('SELECT * FROM camera ORDER BY coc');
         for (var i = 0; i < rs.rows.length; i++) {
             res.push({'name': rs.rows.item(i).name, 'coc': rs.rows.item(i).coc})
         }
@@ -81,7 +81,7 @@ function getFocals() {
     var db = getDatabase();
     var res = Array();
     db.transaction(function(tx) {
-        var rs = tx.executeSql('SELECT * FROM lens');
+        var rs = tx.executeSql('SELECT * FROM lens ORDER BY focal');
         for (var i = 0; i < rs.rows.length; i++) {
             res.push({'name': rs.rows.item(i).focal + ' mm', 'focal': rs.rows.item(i).focal})
         }
@@ -108,7 +108,7 @@ function getApertures() {
     var db = getDatabase();
     var res = Array();
     db.transaction(function(tx) {
-        var rs = tx.executeSql('SELECT * FROM aperture');
+        var rs = tx.executeSql('SELECT * FROM aperture ORDER BY fstop');
         for (var i = 0; i < rs.rows.length; i++) {
             res.push({'name': 'f/' + rs.rows.item(i).fstop, 'fstop': rs.rows.item(i).fstop})
         }

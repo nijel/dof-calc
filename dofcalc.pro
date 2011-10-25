@@ -44,7 +44,8 @@ OTHER_FILES += \
     qml/AboutDialog.qml \
     qml/SettingsPage.qml \
     qml/ApertureModel.qml \
-    qml/ApertureEdit.qml
+    qml/ApertureEdit.qml \
+    qml/ApertureThumbler.qml
 
 RESOURCES += \
     res.qrc
@@ -57,6 +58,7 @@ qtcAddDeployment()
 CONFIG += qdeclarative-boostable
 QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
 QMAKE_LFLAGS += -pie -rdynamic
+
 
 
 

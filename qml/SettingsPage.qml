@@ -1,5 +1,6 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
+import com.nokia.extras 1.1
 
 Page {
     tools: commonTools
@@ -18,7 +19,7 @@ Page {
 
 
                 Label {
-                    text: qsTr("Choices")
+                    text: qsTr("Settings")
                     font.pixelSize: platformStyle.fontPixelSize*1.5
                     font.weight: Font.DemiBold
                 }
@@ -30,9 +31,10 @@ Page {
 
                 Button {
                     text: qsTr("Lenses")
+                    style: ListButtonStyle {}
                 }
 
-                Button {
+                TumblerButton {
                     text: qsTr("Apertures")
                     onClicked: appWindow.pageStack.push(apertureEditPage);
                 }
