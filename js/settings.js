@@ -135,13 +135,13 @@ function deleteAperture(fstop) {
     var db = getDatabase();
     var res = "";
     db.transaction(function(tx) {
-     var rs = tx.executeSql('DELETE FROM aperture WHERE fstop = ?;', [fstop]);
-           if (rs.rowsAffected > 0) {
-             res = "OK";
-           } else {
-             res = "Error";
-           }
-     }
-);
-return res;
+        var rs = tx.executeSql('DELETE FROM aperture WHERE fstop = ?;', [fstop]);
+            if (rs.rowsAffected > 0) {
+                res = "OK";
+            } else {
+                res = "Error";
+            }
+        }
+    );
+    return res;
 }
