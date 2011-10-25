@@ -46,7 +46,8 @@ OTHER_FILES += \
     qml/ApertureModel.qml \
     qml/ApertureEdit.qml \
     qml/ApertureThumbler.qml \
-    qml/CameraModel.qml
+    qml/CameraModel.qml \
+    qml/CameraEdit.qml
 
 RESOURCES += \
     res.qrc
@@ -59,6 +60,7 @@ qtcAddDeployment()
 CONFIG += qdeclarative-boostable
 QMAKE_CXXFLAGS += -fPIC -fvisibility=hidden -fvisibility-inlines-hidden
 QMAKE_LFLAGS += -pie -rdynamic
+
 
 
 

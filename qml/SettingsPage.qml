@@ -27,6 +27,7 @@ Page {
 
                 Button {
                     text: qsTr("Cameras")
+                    onClicked: appWindow.pageStack.push(cameraEditPage);
                 }
 
                 Button {

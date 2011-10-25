@@ -42,6 +42,9 @@ PageStackWindow {
     CameraModel {
         id: cameraModel;
     }
+    CameraEdit {
+        id: cameraEditPage;
+    }
 
     Component.onCompleted: {
         theme.inverted = true;

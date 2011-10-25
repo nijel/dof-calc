@@ -33,12 +33,15 @@ ListModel {
 
     function addDefaults()
     {
+        Settings.addCamera("Compact", 0.005 );
         Settings.addCamera("Four thirds (crop 2)", 0.015 );
         Settings.addCamera("Canon APS-C (crop 1.6)", 0.019 );
         Settings.addCamera("APS-C DSLR (crop 1.5)", 0.020 );
         Settings.addCamera("Canon APS-H (crop 1.3)", 0.023 );
         Settings.addCamera("Full frame SLR", 0.030 );
         Settings.addCamera("Pentax 645D", 0.050 );
+        Settings.addCamera("645", 0.047 );
+        Settings.addCamera("6x6", 0.053 );
     }
 
     function resetDefaults()
@@ -51,9 +54,9 @@ ListModel {
         loadSettings();
     }
 
-    function deleteAperture(fstop)
+    function deleteCamera(name)
     {
-        Settings.deleteAperture(fstop);
+        Settings.deleteCamera(name);
         // Reload to ensure sorting
         loadSettings();
     }
