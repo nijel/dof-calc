@@ -53,7 +53,8 @@ Page {
             left: parent.left
             bottom: parent.bottom;
             right: parent.right
-            margins: 20 }
+            margins: 20
+        }
         Button {
             text: qsTr("Add new")
             onClicked: apertureModel.addAperture(44);
