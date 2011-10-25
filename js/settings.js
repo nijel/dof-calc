@@ -77,6 +77,22 @@ function addCamera(name, coc) {
    return res;
 }
 
+function deleteCamera(name) {
+    var db = getDatabase();
+    var res = "";
+    db.transaction(function(tx) {
+        var rs = tx.executeSql('DELETE FROM camera WHERE name = ?;', [name]);
+            if (rs.rowsAffected > 0) {
+                res = "OK";
+            } else {
+                res = "Error";
+            }
+        }
+    );
+    return res;
+}
+
+
 function getFocals() {
     var db = getDatabase();
     var res = Array();
@@ -102,6 +118,21 @@ function addFocal(focal) {
          }
    );
    return res;
+}
+
+function deleteFocal(focal) {
+    var db = getDatabase();
+    var res = "";
+    db.transaction(function(tx) {
+        var rs = tx.executeSql('DELETE FROM lens WHERE focal = ?;', [focal]);
+            if (rs.rowsAffected > 0) {
+                res = "OK";
+            } else {
+                res = "Error";
+            }
+        }
+    );
+    return res;
 }
 
 function getApertures() {
