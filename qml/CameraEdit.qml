@@ -62,7 +62,7 @@ Page {
         }
         Button {
             text: qsTr("Add new")
-//            onClicked: atDialog.open();
+            onClicked: atDialog.open();
         }
         Button {
             text: qsTr("Reset")
@@ -73,6 +73,10 @@ Page {
 
     ScrollDecorator {
         flickableItem: cameraList
+    }
+
+    CameraDialog {
+        id: atDialog
     }
 
 }

@@ -16,5 +16,6 @@
         <file>qml/FocalModel.qml</file>
         <file>qml/FocalEdit.qml</file>
         <file>qml/FocalThumbler.qml</file>
+        <file>qml/CameraDialog.qml</file>
     </qresource>
 </RCC>
