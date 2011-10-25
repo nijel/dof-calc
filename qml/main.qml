@@ -12,18 +12,26 @@ PageStackWindow {
         id: commonTools
         visible: true
         ToolIcon {
+            iconId: pageStack.depth > 1 ? "toolbar-back" : "toolbar-back-dimmed";
+            onClicked: { if (pageStack.depth > 1) { pageStack.pop(); if (settingsIcon.insettings && pageStack.depth == 1) {settingsIcon.insettings = false; }  }}
+        }
+        ToolIcon {
             platformIconId: "toolbar-application";
             onClicked: aboutDialog.open();
         }
-        /* Not implemented
         ToolIcon {
-            platformIconId: "toolbar-settings";
+            id: settingsIcon;
+            platformIconId: insettings ? "toolbar-settings-dimmed" : "toolbar-settings";
+            property bool insettings: false
+            onClicked: if (!insettings){ appWindow.pageStack.push(settingsPage); insettings = true;}
         }
-        */
     }
 
     AboutDialog {
         id: aboutDialog;
+    }
+    SettingsPage {
+        id: settingsPage;
     }
     Component.onCompleted: {
         theme.inverted = true;

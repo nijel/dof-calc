@@ -7,5 +7,6 @@
         <file>qml/CameraSelection.qml</file>
         <file>qml/AboutDialog.qml</file>
         <file>js/settings.js</file>
+        <file>qml/SettingsPage.qml</file>
     </qresource>
 </RCC>
