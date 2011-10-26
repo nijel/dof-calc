@@ -49,7 +49,7 @@ import com.nokia.meego 1.0
         style: ButtonStyle { }
         anchors.horizontalCenter: parent.horizontalCenter
         Button {
-            text: qsTr("OK");
+            text: qsTr("Ok");
             onClicked: aboutDialog.accept()
         }
         Button {
