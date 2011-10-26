@@ -40,7 +40,7 @@ import com.nokia.meego 1.0
             }
             Label {
                 color: "white"
-                text: qsTr("Website:") + " http://gitorious.org/dofcalc"
+                text: qsTr("Website:") + " http://cihar.com/software/dofcalc/"
             }
         }
     }
@@ -54,7 +54,7 @@ import com.nokia.meego 1.0
         }
         Button {
             text: qsTr("Open website");
-            onClicked: Qt.openUrlExternally('http://gitorious.org/dofcalc')
+            onClicked: Qt.openUrlExternally('http://cihar.com/software/dofcalc/')
         }
         Button {
             text: qsTr("Donate")
