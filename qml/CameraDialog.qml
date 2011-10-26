@@ -1,5 +1,6 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
+import com.nokia.extras 1.1
 
  Dialog {
     id: cameraDialog
@@ -10,7 +11,7 @@ import com.nokia.meego 1.0
         Label {
             font.pixelSize: 38
             anchors.centerIn: parent
-            text: qtStr("Add new camera")
+            text: qsTr("Add new camera")
         }
     }
 
@@ -24,14 +25,23 @@ import com.nokia.meego 1.0
             Label {
                 text: qsTr("Name:")
             }
-            TextInput {
+            TextField {
                 id: nameInput
             }
             Label {
                 text: qsTr("Circle of confusion:")
             }
-            TextInput {
+            TextField {
                 id: cocInput
+                text: "0.020"
+                inputMethodHints: Qt.ImhFormattedNumbersOnly
+                errorHighlight: !acceptableInput
+                validator: DoubleValidator {
+                    bottom: 0
+                    top: 1
+                    decimals: 5
+                    notation: DoubleValidator.StandardNotation
+                }
             }
         }
     }
@@ -41,11 +51,14 @@ import com.nokia.meego 1.0
         anchors.horizontalCenter: parent.horizontalCenter
         ListButton {
             text: qsTr("Add");
-            onClicked: cameraDialog.accept()
+            onClicked: if (cocInput.acceptableInput) cameraDialog.accept();
         }
         ListButton {
             text: qsTr("Cancel");
             onClicked: cameraDialog.close()
         }
     }
+
+    onAccepted: cameraModel.addCamera(nameInput.text, parseFloat(cocInput.text))
+
 }
