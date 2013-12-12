@@ -1,5 +1,5 @@
-dofcalc
-=======
+DOF Calc
+========
 
 Depth of field calculation for Meego
 
